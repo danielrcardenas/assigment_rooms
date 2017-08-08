@@ -1,0 +1,6 @@
+[client]
+database = bigasdb_dev
+user = bgiasdev
+password = devel.2017
+default-character-set = utf8
+host = 10.10.10.51

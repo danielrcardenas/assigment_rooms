@@ -1,0 +1,614 @@
+{% extends 'bigas/base.html' %}
+{% load static %}
+{% block other_sources %}
+    <link rel="stylesheet" href="{% static "css/redips/style.css" %}" type="text/css" media="screen"/>
+    <script type="text/javascript" src="{% static "js/redips/redips-drag-min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/redips/redips_app.js" %}"></script>
+
+{% endblock %}
+{% block title %}BigAS Innova{% endblock %}
+{% block wrapper %}
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="{% static "img/profile_small.jpg" %}"/>
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong
+                                    class="font-bold">Harry Potter</strong>
+                             </span> <span class="text-muted text-xs block">Secretaria Académica <b
+                                    class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Perfil</a></li>
+
+                            <li class="divider"></li>
+                            <li><a href="login.html">Salir</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        <img src="{% static "img/aslogoletra_48x48.png" %}">
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li class="active"><a href="index.html">Dashboard v.1</a></li>
+                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Estadísitcas</span><span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Métricas</span> </a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="form_basic.html">Basic form</a></li>
+                        <li><a href="form_advanced.html">Advanced Plugins</a></li>
+                        <li><a href="form_wizard.html">Wizard</a></li>
+                        <li><a href="form_file_upload.html">File Upload</a></li>
+                        <li><a href="form_editors.html">Text Editor</a></li>
+                        <li><a href="form_autocomplete.html">Autocomplete</a></li>
+                        <li><a href="form_markdown.html">Markdown</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span
+                            class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="table_basic.html">Static Tables</a></li>
+                        <li><a href="table_data_tables.html">Data Tables</a></li>
+                        <li><a href="table_foo_table.html">Foo Tables</a></li>
+                        <li><a href="jq_grid.html">jqGrid</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="buscar..." class="form-control" name="top-search"
+                                   id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Asignación de salones - BigAS Innova</span>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="mailbox.html">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="profile.html">
+                                    <div>
+                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                        <span class="pull-right text-muted small">12 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="grid_options.html">
+                                    <div>
+                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="text-center link-block">
+                                    <a href="notifications.html">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Tabs</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a>Profesores</a>
+                    </li>
+                    <li class="active">
+                        <strong>Tabs</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab-1"> This is tab</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-2">This is second tab</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div id="main_container" class="panel-body">
+                                <div id="redips-drag">
+                                    <div id="left">
+                                        <table id="table1">
+                                            <colgroup>
+                                                <col width="190"/>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="ar" class="redips-drag redips-clone ar">Arts</div>
+                                                    <input id="b_ar" class="ar" type="button" value=""
+                                                           onclick="redips.report('ar')" title="Show only Arts"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="bi" class="redips-drag redips-clone bi">Biology</div>
+                                                    <input id="b_bi" class="bi" type="button" value=""
+                                                           onclick="redips.report('bi')" title="Show only Biology"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="ch" class="redips-drag redips-clone ch">Chemistry</div>
+                                                    <input id="b_ch" class="ch" type="button" value=""
+                                                           onclick="redips.report('ch')" title="Show only Chemistry"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="en" class="redips-drag redips-clone en">English</div>
+                                                    <input id="b_en" class="en" type="button" value=""
+                                                           onclick="redips.report('en')" title="Show only English"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="et" class="redips-drag redips-clone et">Ethics</div>
+                                                    <input id="b_et" class="et" type="button" value=""
+                                                           onclick="redips.report('et')" title="Show only Ethics"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="hi" class="redips-drag redips-clone hi">History</div>
+                                                    <input id="b_hi" class="hi" type="button" value=""
+                                                           onclick="redips.report('hi')" title="Show only History"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="it" class="redips-drag redips-clone it">IT</div>
+                                                    <input id="b_it" class="it" type="button" value=""
+                                                           onclick="redips.report('it')" title="Show only IT"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="ma" class="redips-drag redips-clone ma">Mathematics</div>
+                                                    <input id="b_ma" class="ma" type="button" value=""
+                                                           onclick="redips.report('ma')" title="Show only Mathematics"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="dark">
+                                                    <div id="ph" class="redips-drag redips-clone ph">Physics</div>
+                                                    <input id="b_ph" class="ph" type="button" value=""
+                                                           onclick="redips.report('ph')" title="Show only Physics"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-trash" title="Trash">Trash</td>
+                                            </tr>
+                                            </tbody>
+
+
+                                        </table>
+
+
+                                    </div>
+                                    <div id="right">
+
+                                        <table id="table2">
+                                            <colgroup>
+                                                <col width="50"/>
+                                                <col width="100"/>
+                                                <col width="100"/>
+                                                <col width="100"/>
+                                                <col width="100"/>
+                                                <col width="100"/>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <!-- if checkbox is checked, clone school subjects to the whole table row  -->
+                                                <td class="redips-mark blank">
+                                                    <input id="week" type="checkbox"
+                                                           title="Apply school subjects to the week" checked/>
+                                                    <input id="report" type="checkbox" title="Show subject report"/>
+                                                </td>
+                                                <td class="redips-mark dark">Monday</td>
+                                                <td class="redips-mark dark">Tuesday</td>
+                                                <td class="redips-mark dark">Wednesday</td>
+                                                <td class="redips-mark dark">Thursday</td>
+                                                <td class="redips-mark dark">Friday</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">8:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">9:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">10:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">11:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">12:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">13:00</td>
+                                                <td class="redips-mark lunch" colspan="5">Lunch</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">14:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">15:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">16:00</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                    </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+                                    <strong>Donec quam felis</strong>
+
+                                    <p>Thousand unknown plants are noticed by me: when I hear the buzz of the little
+                                        world among the stalks, and grow familiar with the countless indescribable forms
+                                        of the insects
+                                        and flies, then I feel the presence of the Almighty, who formed us in his own
+                                        image, and the breath </p>
+
+                                    <p>I am alone, and feel the charm of existence in this spot, which was created for
+                                        the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the
+                                        exquisite
+                                        sense of mere tranquil existence, that I neglect my talents. I should be
+                                        incapable of drawing a single stroke at the present moment; and yet.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="row dashboard-header">
+
+                <div class="col-md-3">
+                    <h2>Total de cursos asignados</h2>
+                    <small>You have 42 messages and 6 notifications.</small>
+                    <ul class="list-group clear-list m-t">
+                        <li class="list-group-item fist-item">
+                                <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> Please contact me
+                        </li>
+                        <li class="list-group-item">
+                                <span class="pull-right">
+                                    10:16 am
+                                </span>
+                            <span class="label label-info">2</span> Sign a contract
+                        </li>
+                        <li class="list-group-item">
+                                <span class="pull-right">
+                                    08:22 pm
+                                </span>
+                            <span class="label label-primary">3</span> Open new shop
+                        </li>
+                        <li class="list-group-item">
+                                <span class="pull-right">
+                                    11:06 pm
+                                </span>
+                            <span class="label label-default">4</span> Call back to Sylvia
+                        </li>
+                        <li class="list-group-item">
+                                <span class="pull-right">
+                                    12:00 am
+                                </span>
+                            <span class="label label-primary">5</span> Write a letter to Sandra
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="flot-chart dashboard-chart">
+                        <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col-xs-4">
+                            <div class=" m-l-md">
+                                <span class="h4 font-bold m-t block">$ 406,100</span>
+                                <small class="text-muted m-b block">Sales marketing report</small>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="h4 font-bold m-t block">$ 150,401</span>
+                            <small class="text-muted m-b block">Annual sales revenue</small>
+                        </div>
+                        <div class="col-xs-4">
+                            <span class="h4 font-bold m-t block">$ 16,822</span>
+                            <small class="text-muted m-b block">Half-year revenue margin</small>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="statistic-box">
+                        <h4>
+                            Project Beta progress
+                        </h4>
+                        <p>
+                            You have two project with not compleated task.
+                        </p>
+                        <div class="row text-center">
+                            <div class="col-lg-6">
+                                <canvas id="doughnutChart2" width="80" height="80" style="margin: 18px auto 0"></canvas>
+                                <h5>Kolter</h5>
+                            </div>
+                            <div class="col-lg-6">
+                                <canvas id="doughnutChart" width="80" height="80" style="margin: 18px auto 0"></canvas>
+                                <h5>Maxtor</h5>
+                            </div>
+                        </div>
+                        <div class="m-t">
+                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    Escuela de Administración <strong>Universidad del Rosario</strong>.
+                </div>
+                <div>
+                    <strong>Copyright</strong> Centro de Innovación &copy; 2017
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- This is the container end -->
+
+{% endblock %}
+
+{% block scripts %}
+
+
+
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: true,
+                    showMethod: 'slideDown',
+                    timeOut: 4000
+                };
+                toastr.success('Centro de Innovación', 'Bienvenido a BigAs');
+
+            }, 1300);
+
+
+            var data1 = [
+                [0, 4], [1, 8], [2, 5], [3, 10], [4, 4], [5, 16], [6, 5], [7, 11], [8, 6], [9, 11], [10, 30], [11, 10], [12, 13], [13, 4], [14, 3], [15, 3], [16, 6]
+            ];
+            var data2 = [
+                [0, 1], [1, 0], [2, 2], [3, 0], [4, 1], [5, 3], [6, 1], [7, 5], [8, 2], [9, 3], [10, 2], [11, 1], [12, 0], [13, 2], [14, 8], [15, 0], [16, 0]
+            ];
+            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                    data1, data2
+                ],
+                {
+                    series: {
+                        lines: {
+                            show: false,
+                            fill: true
+                        },
+                        splines: {
+                            show: true,
+                            tension: 0.4,
+                            lineWidth: 1,
+                            fill: 0.4
+                        },
+                        points: {
+                            radius: 0,
+                            show: true
+                        },
+                        shadowSize: 2
+                    },
+                    grid: {
+                        hoverable: true,
+                        clickable: true,
+                        tickColor: "#d5d5d5",
+                        borderWidth: 1,
+                        color: '#d5d5d5'
+                    },
+                    colors: ["#1ab394", "#1C84C6"],
+                    xaxis: {},
+                    yaxis: {
+                        ticks: 4
+                    },
+                    tooltip: false
+                }
+            );
+
+            var doughnutData = {
+                labels: ["App", "Software", "Laptop"],
+                datasets: [{
+                    data: [300, 50, 100],
+                    backgroundColor: ["#a3e1d4", "#dedede", "#9CC3DA"]
+                }]
+            };
+
+
+            var doughnutOptions = {
+                responsive: false,
+                legend: {
+                    display: false
+                }
+            };
+
+
+            var ctx4 = document.getElementById("doughnutChart").getContext("2d");
+            new Chart(ctx4, {type: 'doughnut', data: doughnutData, options: doughnutOptions});
+
+            var doughnutData = {
+                labels: ["App", "Software", "Laptop"],
+                datasets: [{
+                    data: [70, 27, 85],
+                    backgroundColor: ["#a3e1d4", "#dedede", "#9CC3DA"]
+                }]
+            };
+
+
+            var doughnutOptions = {
+                responsive: false,
+                legend: {
+                    display: false
+                }
+            };
+
+
+            var ctx4 = document.getElementById("doughnutChart2").getContext("2d");
+            new Chart(ctx4, {type: 'doughnut', data: doughnutData, options: doughnutOptions});
+
+        });
+    </script>
+
+
+{% endblock %}
